@@ -29,7 +29,7 @@ query = input("Ask a question: ")
 emb_query = create_embeddings([query])[0]
 
 similarities = cosine_similarity(np.vstack(df["embedding"]), [emb_query]).flatten()
-top_results = 30
+top_results = 6
 max_idx = np.argsort(similarities)[::-1][:top_results]
 new_df = df.loc[max_idx]
 
